@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "python_playground"
+version = "0.0.0"
+description = "Python Playground library"
+requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+    "numpy~=2.0",
+]
+[project.optional-dependencies]
+dev = [
+    "black~=26.0",
+    "coverage~=7.0",
+    "pytest>=8,<10",
+    "pytest-random-order~=1.1",
+    "pytest-timeout~=2.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/cappel89/python_playground"
+
+[tool.hatch.build.targets.wheel]
+include = ["*"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.black]
+line-length = 100
+skip-magic-trailing-comma = true
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+include_trailing_comma = true
